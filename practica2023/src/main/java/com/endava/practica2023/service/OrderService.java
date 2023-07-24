@@ -3,12 +3,14 @@ package com.endava.practica2023.service;
 import com.endava.practica2023.model.Event;
 import com.endava.practica2023.model.Order;
 import com.endava.practica2023.model.TicketCategory;
+import com.endava.practica2023.model.UsefulInfo;
 import com.endava.practica2023.repository.EventRepo;
 import com.endava.practica2023.repository.OrderRepo;
 import com.endava.practica2023.repository.TicketCategoryRepo;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -24,4 +26,8 @@ public class OrderService {
         return orderRepository.findOrderByOrderID(Id);
     }
 
+    public UsefulInfo usefulInfo(Order order){
+        return new UsefulInfo(order.getTicketCategoryId().getEventId().getEventID(),order.getOrderedAt(),order.getNumberOfTickets(),
+                order.getTotalPrice(), order.getTicketCategoryId().getTicketCategoryID());
+    }
 }

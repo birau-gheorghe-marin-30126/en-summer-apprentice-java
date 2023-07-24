@@ -15,17 +15,13 @@ public class Event {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer eventID;
-
-    /*@Column(name = "venue_id")
-    private long venueId;
-
-    @Column(name = "event_type_id")
-    private long eventTypeID;*/
     @ManyToOne
-    @MapsId("venue_id")
+    //@MapsId("venue_id")
+    @JoinColumn(name="venue_id")
     private Venue venueId;
 
-    @OneToMany(fetch = FetchType.EAGER, mappedBy = "eventId")
+    //@OneToMany(fetch = FetchType.EAGER, mappedBy = "eventId") // Cascade=all, orphanRemoval
+    @OneToMany(fetch = FetchType.EAGER, mappedBy = "eventId", orphanRemoval = true)
     @JsonIgnoreProperties("eventId")
     List<TicketCategory> listTicketCategory;
 
@@ -38,7 +34,8 @@ public class Event {
     }
 
     @ManyToOne
-    @MapsId("event_type_id")
+    //@MapsId("event_type_id")
+    @JoinColumn(name="event_type_id")
     private EventType eventTypeId;
     @Column(name = "event_description")
     private String eventDescription;

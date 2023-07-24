@@ -9,7 +9,5 @@ import java.util.List;
 
 @Repository
 public interface OrderRepo extends JpaRepository<Order, Integer> {
-    //List<Event> findEventByVenueId_VenueIDAndEventTypeId_EventTypeName(Integer Id, String eventName);
-
     List<Order> findOrderByOrderID(Integer Id);
 }
