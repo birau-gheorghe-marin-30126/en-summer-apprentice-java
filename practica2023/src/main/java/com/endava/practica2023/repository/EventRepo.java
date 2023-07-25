@@ -11,15 +11,4 @@ import java.util.List;
 @Repository
 public interface EventRepo extends JpaRepository<Event, Integer> {
     List<Event> findEventByVenueId_VenueIDAndEventTypeId_EventTypeName(Integer Id, String eventName);
-
-//    @Query("SELECT e.eventID, o.orderedAt, o.ticketCategory.ticketCategoryID, o.numberOfTickets, o.totalPrice " +
-//            "FROM Event e " +
-//            "JOIN e.orders o " +
-//            "WHERE e.eventID = :eventId AND o.ticketCategory.ticketCategoryID = :ticketCategoryId " +
-//            "AND o.numberOfTickets = :numberOfTickets")
-//    List<Object[]> findEventOrderDetails(
-//            Long eventId,
-//            Long ticketCategoryId,
-//            Long numberOfTickets
-//    );
 }

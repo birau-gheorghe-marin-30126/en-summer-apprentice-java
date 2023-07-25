@@ -7,5 +7,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface TicketCategoryRepo extends CrudRepository<TicketCategory, Integer> {
-    // Metodele necesare (dacă există) pentru operații specifice cu TicketCategory
+
 }

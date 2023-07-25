@@ -85,6 +85,4 @@ public class Order {
         this.userId = userId;
         this.ticketCategoryId = ticketCategoryId;
     }
-
-
 }

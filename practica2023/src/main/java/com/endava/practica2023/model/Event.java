@@ -6,6 +6,7 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.Table;
 import jakarta.persistence.*;
 
+import java.time.LocalDateTime;
 import java.util.Date;
 import java.util.List;
 
@@ -44,10 +45,10 @@ public class Event {
     private String eventName;
 
     @Column(name = "start_date")
-    private Date startDate;
+    private LocalDateTime startDate;
 
     @Column(name = "end_date")
-    private Date endDate;
+    private LocalDateTime endDate;
 
     public Integer getEventID() {
         return eventID;
@@ -73,19 +74,19 @@ public class Event {
         this.eventName = eventName;
     }
 
-    public Date getStartDate() {
+    public LocalDateTime getStartDate() {
         return startDate;
     }
 
-    public void setStartDate(Date startDate) {
+    public void setStartDate(LocalDateTime startDate) {
         this.startDate = startDate;
     }
 
-    public Date getEndDate() {
+    public LocalDateTime getEndDate() {
         return endDate;
     }
 
-    public void setEndDate(Date endDate) {
+    public void setEndDate(LocalDateTime endDate) {
         this.endDate = endDate;
     }
 
@@ -104,10 +105,11 @@ public class Event {
     public void setEventTypeId(EventType eventTypeId) {
         this.eventTypeId = eventTypeId;
     }
+
     public Event(){
     }
 
-    public Event(String eventDescription, String eventName, Date startDate, Date endDate, Venue venueId, EventType eventTypeId) {
+    public Event(String eventDescription, String eventName, LocalDateTime startDate, LocalDateTime endDate, Venue venueId, EventType eventTypeId) {
         this.eventDescription = eventDescription;
         this.eventName = eventName;
         this.startDate = startDate;
