@@ -11,17 +11,13 @@ public class Order {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer orderID;
 
-    /*@Column(name = "user_id")
-    private long userId;
-
-    @Column(name = "ticket_category_id")
-    private String ticketCategoryId;*/
     @ManyToOne
-    @MapsId("user_id")
+    @JoinColumn(name="user_id")
     private User userId;
 
     @ManyToOne
-    @MapsId("ticket_category_id")
+    @JoinColumn(name="ticket_category_id")
+    //@MapsId("ticket_category_id")
     private TicketCategory ticketCategoryId;
     @Column(name = "ordered_at")
     private LocalDateTime orderedAt;
@@ -89,20 +85,4 @@ public class Order {
         this.userId = userId;
         this.ticketCategoryId = ticketCategoryId;
     }
-
-    /*public void setTicketCategory(TicketCategory ticketCategory) {
-        this.ticketCategory = ticketCategory;
-    }
-
-    public TicketCategory getTicketCategory() {
-        return ticketCategory;
-    }
-
-    public void setEvent(Event event) {
-        this.event = event;
-    }
-
-    public Event getEvent() {
-        return event;
-    }*/
 }

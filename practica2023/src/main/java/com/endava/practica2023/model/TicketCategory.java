@@ -9,9 +9,6 @@ public class TicketCategory {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer ticketCategoryID;
 
-   // @Column(name = "event_id")
-  //  private long eventId;
-
     @Column(name = "description")
     private String description;
 
@@ -50,7 +47,8 @@ public class TicketCategory {
         this.eventId = eventId;
     }
     @ManyToOne
-    @MapsId("event_id")
+    //@MapsId("event_id")
+    @JoinColumn(name="event_id")
     private Event eventId;
     public TicketCategory(){
     }
